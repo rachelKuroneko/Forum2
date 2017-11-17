@@ -13,54 +13,16 @@
 
   @yield('banner')
     <div class="container">
-
-      <!-- Defining heading for each page using the yield heading -->
-      <div class="row">
-        <div class="row content-heading">
-          <div class="col-md-3">
-            <h4>Category</h4>
-          </div>
-          <div class="col-md-9">
-            <!-- <a href="{{ route('thread.create')}}" class="btn btn-primary">
-              Create Threads
-            </a> -->
-            <!-- <div class="row"> -->
-              <div class="col-md-4">
-                <h4 class="main-content-heading">@yield('heading')</h4>
-              </div>
-
-            <!-- </div> -->
-          </div>
-        </div>
-        <div class="col-md-offset-6 col-md-2">
-          <a href="{{ route('thread.create')}}" class="btn btn-primary">
-            Create Threads
-          </a>
-        </div>
-      </div>
-
       <div class="row">
       <!-- this will take 3 columns  -->
+          @section('category')
       <!-- Category selection -->
-        <div class="col-md-3">
-            <ul class="list-group">
-                <a href="{{ route('thread.index')}}" class="list-group-item">
-                    <span class="badge">14</span>
-                    All thread
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="badge">2</span>
-                    PHP
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="badge">1</span>
-                    Python
-                </a>
-            </ul>
-          </div>
+              @include('layouts.partials.categories')
+          @show
 
         <!-- take the remaining 9 columns  -->
         <div class="col-md-9">
+          <div class="row content-heading"><h4>@yield('heading')</h4></div>
           <div class="content-wrap well">
               @yield('content')
           </div>

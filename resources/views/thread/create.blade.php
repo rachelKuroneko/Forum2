@@ -12,6 +12,7 @@
         <form class="form-vertical" action="{{route('thread.store')}}" method="post" role="form" id="create-thread-form">
             {{ csrf_field() }}
             <div class="form-group">
+            <fieldset>
               <label for="subject">Subject</label>
               <input type="text" class="form-control" name="subject" placeholder="Input..." value="{{old('subject')}}">
             </div>
@@ -23,10 +24,15 @@
 
             <div class="form-group">
               <label for="thread">Thread</label>
-              <textarea class="form-control" name="thread" placeholder="Input..." value="{{old('thread')}}"></textarea>
+              <textarea class="form-control" name="thread" placeholder="Input...">{{old('thread')}}</textarea>
+            </div>
+
+            <div class="form-group">
+                {!! app('captcha')->display(); !!}
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
+          </fieldset>
           </form>
         </div>
       </div>
